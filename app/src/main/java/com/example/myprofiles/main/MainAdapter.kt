@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myprofiles.ResponseItem
+//import com.example.myprofiles.UserResponse
 import com.example.myprofiles.databinding.ListUserBinding
 
 class MainAdapter(val onItemlick: (user: ResponseItem)-> Unit): RecyclerView.Adapter<MainAdapter.ViewHolder>() {

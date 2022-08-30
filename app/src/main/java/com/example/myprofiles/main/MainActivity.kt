@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             )
             adapter = mainAdapter
 
-            Log.e(TAG, "Observer viewmodel: $listUser")
+            Log.d(TAG, "showListUser: $listUser")
         }
     }
 

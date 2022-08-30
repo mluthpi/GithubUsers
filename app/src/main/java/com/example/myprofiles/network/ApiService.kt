@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface ApiService {
 
     @GET("users")
-    fun getUser(name: String) : Call<UserResponse>
+    fun getUser() : Call<UserResponse>
 
     @GET("users/{username}")
     fun getUserDetails(@Path("username") username: String) : Call<UserDetailsResponse>

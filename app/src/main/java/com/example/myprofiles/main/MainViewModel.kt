@@ -21,9 +21,9 @@ class MainViewModel: ViewModel() {
     val isLoading: LiveData<Boolean> = _isLoading
 
     //belum kepanggil
-    fun setUser(username: String) {
+    fun setUser() {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getUser(username)
+        val client = ApiConfig.getApiService().getUser()
         client.enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 _isLoading.value = false
