@@ -49,8 +49,8 @@ class DetailsViewModel : ViewModel() {
         })
     }
 
-    fun getUserRepos() {
-        val client = ApiConfig.getApiService().getReposDetails()
+    fun getUserRepos(username: String) {
+        val client = ApiConfig.getApiService().getReposDetails(username)
         client.enqueue(object : Callback<List<UserRepositoryResponseItem>> {
             override fun onResponse(
                 call: Call<List<UserRepositoryResponseItem>>,
