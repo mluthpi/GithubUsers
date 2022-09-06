@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".details.DetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -49,7 +54,7 @@
         android:id="@+id/relative_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="@id/img_detail"
         app:layout_constraintStart_toEndOf="@id/img_detail"
         app:layout_constraintTop_toTopOf="@id/img_detail">
@@ -79,7 +84,7 @@
         android:id="@+id/relative_layout_followers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="@id/relative_layout"
         app:layout_constraintStart_toEndOf="@id/relative_layout"
         app:layout_constraintTop_toTopOf="@id/relative_layout">
@@ -110,7 +115,7 @@
         android:id="@+id/relative_layout_following"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="25dp"
         app:layout_constraintBottom_toBottomOf="@id/relative_layout_followers"
         app:layout_constraintStart_toEndOf="@id/relative_layout_followers"
         app:layout_constraintTop_toTopOf="@id/relative_layout_followers">
@@ -155,6 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         style="@style/TextContent"
+        android:maxLines="1"
         android:text="@string/company_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -245,5 +251,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

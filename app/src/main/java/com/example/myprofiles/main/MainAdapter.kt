@@ -5,23 +5,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myprofiles.ResponseItem
+import com.example.myprofiles.User
 //import com.example.myprofiles.UserResponse
 import com.example.myprofiles.databinding.ListUserBinding
 
-class MainAdapter(val onItemlick: (user: ResponseItem)-> Unit): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(val onItemlick: (user: User)-> Unit): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
 
-    private val userItemList = mutableListOf<ResponseItem>()
+    private val userItemList = mutableListOf<User>()
 
-    fun setList(userItemList: List<ResponseItem>) {
+    fun setList(userItemList: List<User>) {
         this.userItemList.clear()
         this.userItemList.addAll(userItemList)
         notifyDataSetChanged()
     }
 
     class ViewHolder (private val binding: ListUserBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(userItem: ResponseItem) {
+        fun bind(userItem: User) {
             with(binding) {
                 Glide.with(binding.root)
                     .load(userItem.avatarUrl)

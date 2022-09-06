@@ -2,14 +2,14 @@ package com.example.myprofiles
 
 import com.google.gson.annotations.SerializedName
 
-data class UserResponse(
+//data class UserResponse(
+//
+//	@field:SerializedName("response")
+//	val response: List<ResponseItem?>? = null
+//)
 
-	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null
-)
 
-
-data class ResponseItem(
+data class User(
 
 	@field:SerializedName("gists_url")
 	val gistsUrl: String? = null,

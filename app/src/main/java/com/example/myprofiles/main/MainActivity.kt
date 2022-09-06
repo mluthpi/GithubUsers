@@ -9,7 +9,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myprofiles.ResponseItem
+import com.example.myprofiles.User
 import com.example.myprofiles.databinding.ActivityMainBinding
 import com.example.myprofiles.details.DetailsActivity
 
@@ -28,13 +28,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
+        viewModel.setUser()
+        observeViewModel()
 
+    }
+
+    private fun observeViewModel() {
         viewModel.isLoading.observe(this, {
             showLoading(it)
         })
@@ -43,15 +45,13 @@ class MainActivity : AppCompatActivity() {
             showListUser(listUser)
         })
 
-
-
     }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun showListUser(listUser: List<ResponseItem>) {
+    private fun showListUser(listUser: List<User>) {
         mainAdapter.setList(listUser)
         binding.rvUser.apply {
             layoutManager = LinearLayoutManager(
