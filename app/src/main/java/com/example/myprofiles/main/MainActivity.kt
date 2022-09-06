@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myprofiles.User
 import com.example.myprofiles.databinding.ActivityMainBinding
+import com.example.myprofiles.details.DetailReposAdapter
 import com.example.myprofiles.details.DetailsActivity
 
 class MainActivity : AppCompatActivity() {

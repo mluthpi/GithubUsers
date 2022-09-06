@@ -54,8 +54,8 @@ class DetailsActivity : AppCompatActivity() {
             showLoading(isLoading)
         })
 
-        detailsViewModel.detailRepos.observe(this, {userDetaiRepos ->
-            showRepos(userDetaiRepos)
+        detailsViewModel.detailRepos.observe(this, {userDetailRepos ->
+            showRepos(userDetailRepos)
         })
     }
 
