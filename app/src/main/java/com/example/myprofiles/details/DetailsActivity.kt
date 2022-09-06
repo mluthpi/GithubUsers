@@ -35,10 +35,13 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         username = intent.getStringExtra(USERNAME) ?: ""
+
         detailsViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             DetailsViewModel::class.java)
         detailsViewModel.getDetailsUser(username)
+        detailsViewModel.getUserRepos(username)
         observeViewModel()
 
 
@@ -75,6 +78,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun showRepos(userReposItem: List<UserRepositoryResponseItem>) {
+        reposAdapter = DetailReposAdapter()
         reposAdapter.addRepos(userReposItem)
         binding.rvRepo.apply { layoutManager = LinearLayoutManager(this@DetailsActivity,
             RecyclerView.VERTICAL, false)
