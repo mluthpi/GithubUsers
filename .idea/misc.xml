@@ -8,8 +8,13 @@
         <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/activity_details.xml" value="0.22" />
         <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/activity_splashscreen.xml" value="0.18425925925925926" />
-        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/list_repo.xml" value="0.33" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/detail_list_test.xml" value="0.25" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/detail_test.xml" value="0.25" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/list_main.xml" value="0.25" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/list_repo.xml" value="0.18" />
         <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/list_user.xml" value="0.25" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/main_test.xml" value="0.18796296296296297" />
+        <entry key="..\:/dicoding/MyProfiles/app/src/main/res/layout/test.xml" value="0.18796296296296297" />
       </map>
     </option>
   </component>

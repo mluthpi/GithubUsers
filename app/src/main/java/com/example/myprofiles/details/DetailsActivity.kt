@@ -36,6 +36,8 @@ class DetailsActivity : AppCompatActivity() {
         _binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         username = intent.getStringExtra(USERNAME) ?: ""
 
         detailsViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
@@ -43,6 +45,7 @@ class DetailsActivity : AppCompatActivity() {
         detailsViewModel.getDetailsUser(username)
         detailsViewModel.getUserRepos(username)
         observeViewModel()
+
 
 
 
@@ -67,13 +70,15 @@ class DetailsActivity : AppCompatActivity() {
             .load(userDetailResponse.avatarUrl)
             .into(binding.imgDetail)
         binding.tvDetailName.text = userDetailResponse.name
-        binding.tvRepoValue.text = userDetailResponse.publicRepos.toString()
         binding.tvFollowerValue.text = userDetailResponse.followers.toString()
         binding.tvFollowingValue.text = userDetailResponse.following.toString()
-        binding.tvCompany.text = userDetailResponse.company ?: ""
-        binding.tvLocation.text = userDetailResponse.location ?: ""
+//        binding.tvCompany.text = userDetailResponse.company ?: ""
+//        binding.tvLocation.text = userDetailResponse.location ?: ""
+//        binding.tvRepoValue.text = userDetailResponse.publicRepos.toString()
 
         Log.e(TAG, "Observer viewmodel: $userDetailResponse")
+
+        supportActionBar?.hide()
 
     }
 
