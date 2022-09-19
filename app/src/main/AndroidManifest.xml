@@ -16,6 +16,12 @@
         android:theme="@style/Theme.MyProfiles"
         tools:targetApi="31">
         <activity
+            android:name=".details.following.FollowingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".details.followers.FollowersActivity"
+            android:exported="false" />
+        <activity
             android:name=".details.DetailsActivity"
             android:exported="false" />
         <activity

@@ -1,18 +1,20 @@
 package com.example.myprofiles.details
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myprofiles.R
 import com.example.myprofiles.databinding.ActivityDetailsBinding
+import com.example.myprofiles.details.followers.FollowersActivity
+import com.example.myprofiles.details.followers.FollowersAdapter
+import com.example.myprofiles.details.following.FollowingActivity
+import com.example.myprofiles.main.MainAdapter
 import com.example.myprofiles.main.MainViewModel
 import com.example.myprofiles.model.UserDetailsResponse
 import com.example.myprofiles.model.UserRepositoryResponseItem
@@ -21,6 +23,7 @@ class DetailsActivity : AppCompatActivity() {
 
     companion object {
         const val USERNAME = "USERNAME"
+
     }
 
     private lateinit var detailsViewModel: DetailsViewModel
@@ -31,11 +34,11 @@ class DetailsActivity : AppCompatActivity() {
 
     private lateinit var username: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
 
         username = intent.getStringExtra(USERNAME) ?: ""
@@ -47,9 +50,13 @@ class DetailsActivity : AppCompatActivity() {
         observeViewModel()
 
 
-
-
+        binding.tvFollower.setOnClickListener{
+            val intent = Intent(this, FollowersActivity::class.java)
+            intent.putExtra(FollowersActivity.FOLLOWERS,String())
+            startActivity(intent)
+        }
     }
+
 
     private fun observeViewModel() {
         detailsViewModel.detailsUser.observe(this, { userDetails ->
@@ -78,9 +85,12 @@ class DetailsActivity : AppCompatActivity() {
 
         Log.e(TAG, "Observer viewmodel: $userDetailResponse")
 
+
         supportActionBar?.hide()
 
     }
+
+
 
     private fun showRepos(userReposItem: List<UserRepositoryResponseItem>) {
         reposAdapter = DetailReposAdapter()
@@ -91,9 +101,14 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
+
+
+
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
