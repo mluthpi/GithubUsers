@@ -19,7 +19,7 @@ class MainViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    //belum kepanggil
+
     fun setUser() {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getUser()
