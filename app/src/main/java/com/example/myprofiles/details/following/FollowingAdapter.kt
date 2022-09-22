@@ -6,22 +6,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myprofiles.User
 import com.example.myprofiles.databinding.ListUserBinding
+import com.example.myprofiles.model.UserDetailsResponse
 
-class FollowingAdapter(private val onItemClick: (following: User)-> Unit): RecyclerView.Adapter<FollowingAdapter.ViewHolder>() {
+class FollowingAdapter: RecyclerView.Adapter<FollowingAdapter.ViewHolder>() {
 
-    private val userItemList = mutableListOf<User>()
+    private val userItemList = arrayListOf<UserDetailsResponse>()
 
-    fun addItems(userItemList: List<User>) {
+    fun addItems(userItemList: List<UserDetailsResponse>) {
         this.userItemList.clear()
         this.userItemList.addAll(userItemList)
         notifyDataSetChanged()
     }
 
     class ViewHolder(private val binding: ListUserBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(userItem: User) {
+        fun bind(userItem: UserDetailsResponse) {
             with(binding) {
                 Glide.with(binding.root)
-                    .load(userItem.avatarUrl)
+                    .load(userItem.followingUrl)
                     .into(imgAvatar)
                 tvName.text = userItem.login
             }
@@ -37,7 +38,7 @@ class FollowingAdapter(private val onItemClick: (following: User)-> Unit): Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val userItem = userItemList[position]
         holder.bind(userItem)
-        holder.itemView.setOnClickListener { onItemClick(userItem) }
+
     }
 
     override fun getItemCount(): Int = userItemList.size

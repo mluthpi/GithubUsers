@@ -19,10 +19,8 @@ class FollowersActivity : AppCompatActivity() {
 
     private var _binding : ActivityFollowersBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var followersAdapter : FollowersAdapter
     private lateinit var followersViewModel : FollowersViewModel
-
     private lateinit var username: String
 
     override fun onCreate(savedInstanceState: Bundle?) {

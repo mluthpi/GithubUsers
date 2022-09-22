@@ -24,9 +24,9 @@ class FollowersAdapter: RecyclerView.Adapter<FollowersAdapter.ViewHolder>() {
         fun bind(userItem: UserDetailsResponse) {
             with(binding) {
                 Glide.with(binding.root)
-                    .load(userItem.followers)
+                    .load(userItem.followersUrl)
                     .into(imgAvatar)
-                tvName.text = userItem.followersUrl
+                tvName.text = userItem.login
             }
         }
     }

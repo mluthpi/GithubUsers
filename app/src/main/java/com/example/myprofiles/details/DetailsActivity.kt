@@ -2,20 +2,17 @@ package com.example.myprofiles.details
 
 import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myprofiles.databinding.ActivityDetailsBinding
 import com.example.myprofiles.details.followers.FollowersActivity
-import com.example.myprofiles.details.followers.FollowersAdapter
 import com.example.myprofiles.details.following.FollowingActivity
-import com.example.myprofiles.main.MainAdapter
-import com.example.myprofiles.main.MainViewModel
 import com.example.myprofiles.model.UserDetailsResponse
 import com.example.myprofiles.model.UserRepositoryResponseItem
 
@@ -53,6 +50,12 @@ class DetailsActivity : AppCompatActivity() {
         binding.tvFollower.setOnClickListener{
             val intent = Intent(this, FollowersActivity::class.java)
             intent.putExtra(FollowersActivity.FOLLOWERS, username)
+            startActivity(intent)
+        }
+
+        binding.tvFollowing.setOnClickListener {
+            val intent = Intent(this, FollowingActivity::class.java)
+            intent.putExtra(FollowingActivity.FOLLOWING, username)
             startActivity(intent)
         }
     }
